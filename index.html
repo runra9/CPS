@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Тест скорости кликов</title>
+    <style>
+      button {
+        font-size: 24px;
+        padding: 16px 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Тест скорости кликов</h1>
+    <p>Нажимайте на кнопку как можно быстрее и попробуйте установить новый рекорд!</p>
+    <button id="clickButton">Нажимайте!</button>
+    <p>Ваше время: <span id="time"></span> секунд</p>
+    <script>
+      var startTime, endTime;
+      var button = document.getElementById("clickButton");
+      button.onclick = function() {
+        if (!startTime) {
+          startTime = new Date();
+        } else {
+          endTime = new Date();
+          var timeDiff = endTime - startTime;
+          var seconds = timeDiff / 1000;
+          document.getElementById("time").innerHTML = seconds.toFixed(2);
+          startTime = null;
+          endTime = null;
+        }
+      };
+    </script>
+  </body>
+</html>
